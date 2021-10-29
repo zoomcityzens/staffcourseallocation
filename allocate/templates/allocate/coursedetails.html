@@ -1,0 +1,132 @@
+
+
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    <div>
+        <section class="section" id="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="section-heading">
+                            <h2><em>COURSE DETAILS, SCHEDULES AND PLACEMENTS FOR FEDERAL ROAD SAFETY STAFF</em></h2>
+                            <img src="{% static 'images/line-dec.png' %}" alt="waves">
+                            <p>Here you can view a description of the course</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="features-items">
+                            {% for allocation in allocations %}
+                                <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="First One">
+                                </div>
+                                <div class="right-content">
+                                    
+                                    <h6><em>Staff Name</em></h6>
+                                        <p>{{allocation.staff}}</p>
+                                    <h6><em>Course Name</em></h6>
+                                        <p>{{allocation.course}}</p> 
+                                    <h6><em>Facilitator</em></h6>
+                                        <p>{{allocation.facilitator}}</p> 
+                                    <h6><em>Description:</em></h6>
+                                    <p>{{allocation.description}}</p>
+                                    <h6><em>Duration:</em></h6>
+                                    <p>{{allocation.duration}}</p>
+                                    
+                                    <hr>
+                                </div>
+                                </li>
+                               
+                             {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="features-items">
+                            
+                                <li class="feature-item">
+                                
+                                <div class="right-content">
+                                    <p>Our Employee Development company policy refers to the company’s learning and development programs and activities.
+
+                                        In the modern competitive environment, employees need to replenish their knowledge and acquire new skills to do their jobs better. This will benefit both them and the company. We want them to feel confident about improving efficiency and productivity, as well as finding new ways towards personal development and success.
+                                        Scope
+                                        
+                                        This policy applies to all permanent, full-time or part-time, employees of the company. Employees with temporary/short-term contracts might attend trainings at their manager’s discretion.
+                                        
+                                        This policy doesn’t cover supplementary employees like contractors or consultants.
+                                        Policy elements
+                                        
+                                        Employees, managers and Human Resources (HR) should all collaborate to build a continuous professional development (CPD) culture. It’s an employee’s responsibility to seek new learning opportunities. It’s a manager’s responsibility to coach their teams and identify employee development needs. And it’s HR’s
+                                         responsibility to facilitate any staff development activities and processes.</p>
+                                    
+                                    <hr>
+                                    <img src="{% static 'images/tt.jpg' %}" alt="First One"><br><br><br>
+                                    <div class="main-button scroll-to-section">
+                                        <a href="{% url 'allocation' %}">BACK TO COURSES PAGE</a>
+                                    </div>
+                                </div>
+                                </li>
+                               
+                            
+                        </ul>
+                    </div>
+                   
+                    <!-- <div class="col-lg-6">
+                        
+                        
+
+                        <div>
+                            
+                        </div>
+
+                        
+                        <ul class="features-items">
+                          
+                            <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="fourth muscle">
+                                </div>
+                                <div class="right-content">
+                                    <h4>fg</h4>
+                                    <p>You may want to browse through <a rel="nofollow" href="https://templatemo.com/tag/digital-marketing" target="_parent">Digital Marketing</a> or <a href="https://templatemo.com/tag/corporate">Corporate</a> HTML CSS templates on our website.</p>
+                                    <a href="#" class="text-button">Discover More</a>
+                                </div>
+                            </li>
+                            <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="training fifth">
+                                </div>
+                                <div class="right-content">
+                                    <h4>Yoga Training</h4>
+                                    <p>This template is built on Bootstrap v4.3.1 framework. It is easy to adapt the columns and sections.</p>
+                                    <a href="#" class="text-button">Discover More</a>
+                                </div>
+                            </li>
+                            <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="gym training">
+                                </div>
+                                <div class="right-content">
+                                    <h4>Body Building Course</h4>
+                                    <p>Suspendisse fringilla et nisi et mattis. Curabitur sed finibus nisi. Integer nibh sapien, vehicula et auctor.</p>
+                                    <a href="#" class="text-button">Discover More</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+          
+
+    </div>
+
+
+</div>
+
+
+{% endblock content %}

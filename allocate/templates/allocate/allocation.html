@@ -1,0 +1,127 @@
+
+
+{% extends 'main.html' %}
+{% load static %}
+
+{% block content %}
+
+<div>
+
+    
+
+    <div>
+        <section class="section" id="features">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 offset-lg-3">
+                        <div class="section-heading">
+                            <h2>LIST OF COURSES TO BE <em>ALLOCATED TO FEDERAL ROAD SAFETY STAFF</em></h2>
+                            <img src="{% static 'images/line-dec.png' %}" alt="waves">
+                            <p>Find below the total number of courses</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="features-items">
+                            {% for course in courses %}
+                                <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="First One">
+                                </div>
+                                <div class="right-content">
+                                    <h4>{{course.name}}</h4>
+                                    <p>Please note that each course comes with core details that can be gotten from 
+                                        the details page
+                                    </p>
+                                    <div class="main-button scroll-to-section">
+                                        <a href="{% url 'coursedetails' %}">VIEW DETAILS AND ALLOCATIONS</a>
+                                    </div>
+                                    
+                                </div>
+                                </li>
+                               
+                             {% endfor %}
+                            
+                        </ul>
+                        
+                    </div>
+                    <div class="col-lg-6">
+                        <ul class="features-items">
+                            
+                                <li class="feature-item">
+                                
+                                <div class="right-content">
+                                    <img src="{% static 'images/yy.jpg' %}" alt="First One"><br>
+
+                                    <p><h6>The Importance of Training</h6>
+
+What is the importance of training in the workplace? Better training leads to better processes and Better Work. In today’s ever-changing marketplace, the importance of job training has never been greater. Workforce training is an indispensable way to keep your organization competitive. Employees are human, most will have weaknesses or gaps in their professional skills. Furthermore, most professional people are specialists of one kind or another. Much of what goes on in your organization is likely to fall outside of the training each individual worker already has.
+
+Having a high quality and comprehensive employee training development program enables you to strengthen the skills your workforce does possess as well as to build up knowledge where it is lacking. An employee training development program will bring all of your staff up to a higher standard of competency so that your entire team can share a common set of knowledge and skills. Such a program will repair any weak links that may exist in your organization and cause the workload to be more evenly spread among your workers.
+</p>
+                                    
+                                    <hr><br><br>
+                                    <div class="main-button scroll-to-section">
+                                        <a href="{% url 'home' %}">GO TO PLATFORM</a>
+                                    </div>
+                                    
+                                </div>
+                                </li>
+                               
+                            
+                        </ul>
+                    </div>
+                    <!-- <div class="col-lg-6">
+                        
+                        
+
+                        <div>
+                            
+                        </div>
+
+                        
+                        <ul class="features-items">
+                          
+                            <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="fourth muscle">
+                                </div>
+                                <div class="right-content">
+                                    <h4>fg</h4>
+                                    <p>You may want to browse through <a rel="nofollow" href="https://templatemo.com/tag/digital-marketing" target="_parent">Digital Marketing</a> or <a href="https://templatemo.com/tag/corporate">Corporate</a> HTML CSS templates on our website.</p>
+                                    <a href="#" class="text-button">Discover More</a>
+                                </div>
+                            </li>
+                            <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="training fifth">
+                                </div>
+                                <div class="right-content">
+                                    <h4>Yoga Training</h4>
+                                    <p>This template is built on Bootstrap v4.3.1 framework. It is easy to adapt the columns and sections.</p>
+                                    <a href="#" class="text-button">Discover More</a>
+                                </div>
+                            </li>
+                            <li class="feature-item">
+                                <div class="left-icon">
+                                    <img src="{% static 'images/features-first-icon.png' %}" alt="gym training">
+                                </div>
+                                <div class="right-content">
+                                    <h4>Body Building Course</h4>
+                                    <p>Suspendisse fringilla et nisi et mattis. Curabitur sed finibus nisi. Integer nibh sapien, vehicula et auctor.</p>
+                                    <a href="#" class="text-button">Discover More</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div> -->
+                </div>
+            </div>
+        </section>
+          
+
+    </div>
+
+
+</div>
+
+
+{% endblock content %}
