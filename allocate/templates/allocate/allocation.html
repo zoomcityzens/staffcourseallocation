@@ -22,18 +22,17 @@
                     </div>
                     <div class="col-lg-6">
                         <ul class="features-items">
-                            {% for course in courses %}
+                            {% for allocation in allocations %}
                                 <li class="feature-item">
                                 <div class="left-icon">
                                     <img src="{% static 'images/features-first-icon.png' %}" alt="First One">
                                 </div>
                                 <div class="right-content">
-                                    <h4>{{course.name}}</h4>
-                                    <p>Please note that each course comes with core details that can be gotten from 
-                                        the details page
-                                    </p>
+                                    <h4>{{allocation.course.name}}</h4>
+                                    <h6><em>Staff Name</em>: <span>{{allocation.staff}}</span></h6>
+                                        
                                     <div class="main-button scroll-to-section">
-                                        <a href="{% url 'coursedetails' %}">VIEW DETAILS AND ALLOCATIONS</a>
+                                        <a href="{% url 'coursedetails' allocation.pk %}">VIEW DETAILS AND ALLOCATIONS</a>
                                     </div>
                                     
                                 </div>

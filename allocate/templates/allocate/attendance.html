@@ -1,0 +1,58 @@
+{% extends 'main.html' %} {% load static %} {% block content %}
+
+<div>
+  <div class="container pt-5">
+    <section class="section" id="features">
+      <form method="post" class="form">
+        {% csrf_token %}
+        <div class="cta-content">
+          <legend>Attendance Details</legend>
+        </div>
+        <div class="row justify-content-center align-items-center">
+          {% for field in form %}
+          <div class="col-sm-12 col-md-3">
+            <div class="form-group">
+              <div>
+                <label for="{{ field.label}}">{{ field.label }}</label>
+              </div>
+              {{ field }}
+              <small class="text-danger">{{ field.errors }}</small>
+            </div>
+          </div>
+          {% endfor %}
+          <div class="form-group">
+            <input type="submit" value="Take Attendance" class="btn btn-danger" />
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <section>
+      <table class="table table-stripped">
+        <thead>
+          <tr>
+            <th>S/N</th>
+            <th>Name</th>
+            <th>Action</th>
+            <th>Date</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for attendance in attendances %}
+          <tr>
+            <td scope="row">{{ forloop.counter }}</td>
+            <td>{{ user.username }}</td>
+            <td>{{ attendance.action }}</td>
+            <td>{{ attendance.date }}</td>
+            <td>{{ attendance.time }}</td>
+          </tr>
+          
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>
+
+{% endblock content %}

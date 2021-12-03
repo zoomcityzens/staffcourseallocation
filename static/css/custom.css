@@ -1,0 +1,13 @@
+.form input:not([type="submit"]){
+    width: 80%;
+    padding:20px;
+    border-radius: 10px;
+    border: 1px solid #bbb;
+}
+.form input:not([type="submit"])::placeholder{
+    color: #ed563b;
+}
+.form input:not([type="submit"]):focus{
+    outline-style:none;
+    border: 1px solid #ed563b;
+}

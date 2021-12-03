@@ -1,34 +1,59 @@
-{% extends 'main.html' %}
-
-
-{% block content %}
+{% extends 'main.html' %} {% block content %}
 
 <div>
+  {% if messages %} {% for message in messages %}
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong> {{ message }} </strong>
+  </div>
+  {% endfor %} {% endif %}
 
-    
+  <script>
+    $(".alert").alert();
+  </script>
 
-    <div>
-        <section class="section" id="call-to-action">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-10 offset-lg-1">
-                        <div class="cta-content">
-                            <h2><em>FEDERAL ROAD SAFETY CORP</em></h2>
-                            <h3>Course Allocation for Staff</h3>
-                            <div class="main-button scroll-to-section">
-                                <a href="{% url 'allocation' %}">GO TO PLATFORM</a>
-                            </div>
-                        </div>
-                    </div>
+  <div>
+    <section class="section" id="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10 offset-lg-1">
+            <div class="cta-content">
+              <h2><em>FEDERAL ROAD SAFETY CORP</em></h2>
+              <h3>Course Allocation for Staff</h3>
+
+              <form method="post" class="form">
+                {% csrf_token %}
+                <div class="cta-content">
+                  <legend>Login Form</legend>
                 </div>
+                <div class="row">
+                  {% for field in form %}
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <div>
+                        <label for="{{ field.label}}">{{ field.label }}</label>
+                      </div>
+                      {{ field }}
+                      <small class="text-danger">{{ field.errors }}</small>
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                <div class="form-group">
+                  <input type="submit" value="Login" class="btn btn-danger" />
+                </div>
+              </form>
+              <div class="main-button scroll-to-section">
+                <a href="{% url 'registration' %}">SIGN UP</a>
+              </div>
             </div>
-        </section>
-          
-
-    </div>
-
-
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </div>
-
 
 {% endblock content %}

@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+from uuid import uuid4
 from django.contrib.auth.models import User
 
 
@@ -33,5 +35,25 @@ class Allocation(models.Model):
     
     def __str__(self):
         return str(self.staff)
-  
-    
+
+class Attendance(models.Model):
+    ACTIONS = [
+        ('SIGN IN', 'SIGN IN'),
+        ('SIGN OUT', 'SIGN OUT'),
+    ]
+    id = models.UUIDField(primary_key=True, editable=False, default=uuid4)
+    allocation = models.ForeignKey(Allocation, on_delete=models.CASCADE)
+    action = models.CharField(max_length=8, choices=ACTIONS)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    date = models.DateField()
+    time = models.TimeField()
+    timestamp = models.DateTimeField(auto_now_add=timezone.now)
+
+    def __str__(self) -> str:
+        return f"{0} {1} | {2} {3} \n {4}".format(
+            self.user.first_name,
+            self.user.last_name,
+            self.date,
+            self.time,
+            self.timestamp
+        )
