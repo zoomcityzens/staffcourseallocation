@@ -17,6 +17,7 @@
             {% for field in form %}
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
+                <small><label>{{ field.label }}</label></small>
                 {{ field }}
                 <small class="text-danger">{{ field.errors }}</small>
               </div>
@@ -26,13 +27,12 @@
           <div class="row justify-content-center">
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <input type="text" name="job_title" id="" placeholder="Job Title">
+                <input type="text" name="job_title" id="" placeholder="Job Title" class="form-control" required>
               </div>
             </div>
             <div class="col-sm-12 col-md-6">
               <div class="form-group">
-                <input type="number" name="age" id="" placeholder="Age" class="form-control" min="0">
-                <small class="text-danger">{{ field.errors }}</small>
+                <input type="number" name="age" id="" placeholder="Age" class="form-control" min="0" required>
               </div>
             </div>
           </div>

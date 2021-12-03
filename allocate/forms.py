@@ -10,21 +10,40 @@ class CreateUser(UserCreationForm):
     class Meta:
         model = User
         fields = [
-            'username', 
-            'email', 
-            'first_name', 
-            'last_name', 
-            'password1', 
-            'password2', 
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+            'password1',
+            'password2',
         ]
         widgets = {
-            'username': widgets.TextInput(attrs={'placeholder': "Username"}),
-            'first_name': widgets.TextInput(attrs={'placeholder': "First Name"}),
-            'last_name': widgets.TextInput(attrs={'placeholder': "Last Name"}),
-            'email': widgets.EmailInput(attrs={'placeholder': "example@example.com"}),
-            'password1': widgets.PasswordInput(attrs={'placeholder': "Password"}),
-            'password2': widgets.PasswordInput(attrs={'placeholder': "Repeat Password"}),
+            'username': widgets.TextInput(attrs={
+                'placeholder': "Username", 
+                "class": "form-control"
+            }),
+            'first_name': widgets.TextInput(attrs={
+                'placeholder': "First Name", 
+                "class": "form-control"
+            }),
+            'last_name': widgets.TextInput(attrs={
+                'placeholder': "Last Name", 
+                "class": "form-control"
+            }),
+            'email': widgets.EmailInput(attrs={
+                'placeholder': "example@example.com", 
+                "class": "form-control"
+                }),
+            'password1': widgets.PasswordInput(attrs={
+                'placeholder': "Password", 
+                "class": "form-control"
+                }),
+            'password2': widgets.PasswordInput(attrs={
+                'placeholder': "Repeat Password", 
+                "class": "form-control"
+            }),
         }
+
 
 class LoginForm(AuthenticationForm):
     fields = '__all__'
@@ -32,6 +51,7 @@ class LoginForm(AuthenticationForm):
         'username': widgets.TextInput(attrs={'placeholder': "Username"}),
         'password': widgets.PasswordInput(attrs={'placeholder': "Password"}),
     }
+
 
 class AttendanceForm(forms.ModelForm):
     class Meta:

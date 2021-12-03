@@ -26,7 +26,7 @@
                                 <div class="right-content">
                                     
                                     <h6><em>Staff Name</em></h6>
-                                        <p>{{allocation.staff}}</p>
+                                        <p>{{allocation.staff.user.first_name}} {{allocation.staff.user.last_name}}</p>
                                     <h6><em>Course Name</em></h6>
                                         <p>{{allocation.course}}</p> 
                                     <h6><em>Facilitator</em></h6>
@@ -41,9 +41,11 @@
                                 </li>
                                
                         </ul>
+                        {% if allocation.staff.user == user %}
                         <div class="main-button scroll-to-section">
                             <a href="{% url 'attendance' %}">ATTENDANCE</a>
                         </div>
+                        {% endif %}
                     </div>
                     <div class="col-lg-6">
                         <ul class="features-items">

@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="right-content">
                                     <h4>{{allocation.course.name}}</h4>
-                                    <h6><em>Staff Name</em>: <span>{{allocation.staff}}</span></h6>
+                                    <h6><em>Staff Name</em>: <span>{{allocation.staff.user.first_name}} {{allocation.staff.user.last_name}}</span></h6>
                                         
                                     <div class="main-button scroll-to-section">
                                         <a href="{% url 'coursedetails' allocation.pk %}">VIEW DETAILS AND ALLOCATIONS</a>

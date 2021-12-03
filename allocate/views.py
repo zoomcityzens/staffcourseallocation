@@ -43,8 +43,12 @@ def create_user(request):
     form = CreateUser()
     if request.method == 'POST':
         if (form := CreateUser(request.POST)).is_valid():
-            form.save()
-            return redirect('login')
+            user = form.save()
+            Staff.objects.create(
+                user=user, job_title=request.POST.get('job_title'),
+                age=request.POST.get('age')
+            )
+            return redirect('home')
         else:
             messages.error(request, form.error_messages)
     context = {'form': form}
@@ -55,10 +59,14 @@ def take_attendance(request):
     if request.method == 'POST':
         if (form := AttendanceForm(request.POST)).is_valid():
             form.instance.user = request.user
-            form.instance.allocation = Allocation.objects.get(staff=request.user)
+            form.instance.allocation = Allocation.objects.get(
+                staff=Staff.objects.get(user=request.user)
+            )
             form.save()
     context = {
         'form': AttendanceForm(),
+        'attendances': Attendance.objects.filter(user=request.user).order_by('-timestamp'),
+        'allocation_id': Allocation.objects.get(staff__user=request.user).pk
     }
     return render(request, template_name, context)
 
